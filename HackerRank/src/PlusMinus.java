@@ -1,4 +1,4 @@
-package HackerRank;
+package src;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

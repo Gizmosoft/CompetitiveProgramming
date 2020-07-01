@@ -1,6 +1,9 @@
-package HackerRank;
+package src;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Vector;
 
 public class SubstringComparison {
 

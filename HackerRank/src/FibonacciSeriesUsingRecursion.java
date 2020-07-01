@@ -1,4 +1,4 @@
-package HackerRank;
+package src;
 
 public class FibonacciSeriesUsingRecursion {
 	public static int a=0,b=1,c;
