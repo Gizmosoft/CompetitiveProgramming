@@ -1,4 +1,4 @@
-package geeksForGeeks_GFG.arrays;
+package geeksForGeeks_GFG.linkedlist;
 
 import java.util.*;
 
