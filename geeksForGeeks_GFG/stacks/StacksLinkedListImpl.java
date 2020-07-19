@@ -27,11 +27,12 @@ public class StacksLinkedListImpl {
 			head = new Node(new_data);
 		}
 		else{
-			new_node.next = null;
-			Node last = head;
-			while(last.next != null)
-				last = last.next;
-			last.next = new_node;
+			new_node.next = head;
+			head = new_node;
+//			Node last = head;
+//			while(last.next != null)
+//				last = last.next;
+//			last.next = new_node;
 		}
 		System.out.println(new_data + " pushed to the stack.");
 	}
@@ -41,11 +42,8 @@ public class StacksLinkedListImpl {
 		if(head==null)
 			System.out.println("Stack is Empty!");
 		else{
-			Node last = head;
-			while(last.next != null)
-				last = last.next;
-			popped = last.data;
-			last = null;
+			popped = head.data;
+			head = head.next;
 		}
 		return popped;
 	}
@@ -54,12 +52,8 @@ public class StacksLinkedListImpl {
 		int topValue = 0;
 		if(head==null)
 			System.out.println("Stack is Empty!");
-		else{
-			Node last = head;
-			while(last.next != null)
-				last = last.next;
-			topValue = last.data;
-		}
+		else
+			topValue =  head.data;
 		return topValue;
 	}
 	
@@ -71,9 +65,10 @@ public class StacksLinkedListImpl {
 		sll.push(3);
 		sll.push(4);
 		System.out.println(sll.isEmpty());
+		System.out.println(sll.peek() + " is the topmost element in the stack.");
 		System.out.println(sll.pop() + " is popped from the Stack.");
 //		sll.push(5);
-		System.out.println(sll.peek());
+		System.out.println(sll.peek() + " is the topmost element in the stack.");
 	}
 
 }
