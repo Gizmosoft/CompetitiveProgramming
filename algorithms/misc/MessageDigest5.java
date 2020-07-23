@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.misc;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
