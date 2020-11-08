@@ -46,10 +46,30 @@ public class ReverseLinkedList {
 		}
 		head = prev;
 	}
-
-	public static void main(String[] args) {
+	
+	Node reverseListUsingRecursion(Node head){		// not working
+		if(head==null)
+			return null;
+		else if(head.next == null)
+			return head;
+		else{
+			Node nextNode = head.next;
+			head.next = null;
+			Node rev = reverseListUsingRecursion(nextNode);
+			nextNode.next = head;
+			return rev;
+		}
+	}
+	
+	void printRecursiveList(Node head){
+		while(head!=null){
+			System.out.print(String.valueOf(head.data) + " ");
+			head = head.next;
+		}
+	}
+	public static void main(String[] args) throws Exception{
 		ReverseLinkedList rll = new ReverseLinkedList();
-		Scanner sc = new Scanner(System.in);
+		
 		
 		rll.push(1);
 		rll.push(2);
@@ -58,9 +78,12 @@ public class ReverseLinkedList {
 		
 		rll.printList();
 		
-		rll.reverseList();
+//		rll.reverseList();
+//		
+//		rll.printList();
 		
-		rll.printList();
+//		Node rllist = rll.reverseListUsingRecursion(curr);
+//		rll.printRecursiveList(head);
 	}
 
 }
