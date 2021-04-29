@@ -26,7 +26,8 @@ public class CountNodesOfLinkedList {
 		Node new_node = new Node(new_data);
 		
 		if(head==null){
-			head = new Node(new_data);
+			head = new_node;
+			//head = new Node(new_data);
 			return;
 		}
 		

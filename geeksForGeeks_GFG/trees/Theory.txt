@@ -1,0 +1,59 @@
+Tree - Data Structure
+
+
+					A					root : A
+				  / | \					Nodes: B,C,D,X,Y,K
+				 B	C  D				Edges: nodes-1 --- connection b/w nodes
+				   / \  \				Leaf Node: X,Y,K --- doesn't have child node
+				  X   Y  K				Siblings: B,C,D  &  X,Y,K
+				  						Internal Nodes: with at least one child node
+				  						
+				  						
+				  						
+Binary tree - Data Structure
+
+
+					A					A binary tree can have either 0,1 or 2 child nodes, not more than that!
+				   / \
+				  B   C
+				  
+				  
+				  1. Perfect BT - All internal nodes have exactly 2 child nodes and all external nodes are at same depth
+				  2. Full BT   - All nodes have either 0 or 2 child nodes
+				  3. Complete BT - A binary tree where all the tree levels are filled entirely with nodes, except the lowest 									level of the tree where in the last or the lowest level of this binary tree, every node 									should possibly reside on the left side.
+				  4. Balanced BT - If tree height is O(logN) where N=no. of nodes. Height of left & right subtree of each node 									varies by max 1.
+				  5. Degenerate/Pathological BT - Every internal node has a single child node- similar to Linked List in perf
+				  
+				  Depth of a node - number of ancestor nodes including Root
+				  Height of a node - number of nodes in the longest chain of child nodes till the last leaf node (excluding the 									 										node itself)
+				  
+				  * Height of root node == Height of TREE
+	
+	A Binary Tree contains:
+		1. Data
+		2. Pointer to left child node
+		3. Pointer to right child node
+		
+
+	Properties of a Binary Tree:
+		1. The maximum number of nodes at level ‘l’ (considering root to be at level 0) of a binary tree is 2l. (as it cannot 		  		   have child nodes more than 2)
+		2. The Maximum number of nodes in a binary tree of height ‘h’ is 2h – 1. (height of the tree is counted excluding the 			root)
+		3. In a Binary Tree with N nodes, minimum possible height or the minimum number of levels is Log2(N+1) 
+		4. A Binary Tree with L leaves has at least | Log2L |+ 1 levels
+		5. In Binary tree where every node has 0 or 2 children, the number of leaf nodes is always one more than nodes with two 			children. 
+		
+	Tree Traversal:
+	
+										A
+									   / \
+									  B   C
+									 / \
+									D   E
+	
+		1. Level Order Traversal - Breadth First Search (BFS)  --> A-B-C-D-E
+		
+		2. Depth First Search Traversal (DFS):
+			a. Inorder Traversal (Left, Root, Right) --> D,B,E,A,C
+			b. Preorder Traversal (Root, Left, Right) --> A,B,D,E,C
+			c. Postorder Traversal (Left, Right, Root) --> D,E,B,C,A
+				 

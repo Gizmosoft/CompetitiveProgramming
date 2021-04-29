@@ -1,7 +1,7 @@
 package geeksForGeeks_GFG.stacks;
 
 class Stack{
-	static final int MAX_SIZE = 1000;	// Max Stack Size
+	static final int MAX_SIZE = 5;	// Max Stack Size
 	int top;							// Determines the top element of stack 
 	int arr[] = new int[MAX_SIZE];		// Initialize an array of MAX Stack Size
 	
@@ -10,14 +10,20 @@ class Stack{
 	}
 	
 	boolean push(int x){
-		if(top >= MAX_SIZE-1){
-			System.out.println("Stack Overflow!");
-			return false;
-		}
-		else{
+		try {
+//		if(top >= MAX_SIZE){
+//			System.out.println("Stack Overflow!");
+//			return false;
+//		}
+//		else{
 			arr[++top] = x;
 			System.out.println(x + " pushed into the stack.");
 			return true;
+//		}
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Stack Overflow!");
+			//e.printStackTrace();
+			return false;
 		}
 	}
 	
@@ -28,8 +34,13 @@ class Stack{
 			return 0;
 		}
 		else{
-			int x = arr[top--];
-			return x;
+			try {
+				int x = arr[top--];
+				return x;
+			} catch (ArrayIndexOutOfBoundsException e) {
+				int x = arr[--top];
+				return x;
+			}
 		}
 	}
 	
@@ -43,8 +54,14 @@ class Stack{
 			return 0;
 		}
 		else{
-			int x = arr[top];
-			return x;
+			try {
+				int x = arr[top];
+				return x;
+			} catch (ArrayIndexOutOfBoundsException e) {
+				int tempTop = top-1;
+				System.out.println("I can just see this at the top: ");
+				return arr[tempTop];
+			} 
 		}
 	}
 	
@@ -53,9 +70,14 @@ class Stack{
 			System.out.println("Stack Underflow! - Cannot print.");
 		}
 		else{
-			while(top >=0){
-				int x = arr[top--];
-				System.out.print(x + " ");
+			try {
+				while(top >=0){
+					int x = arr[top--];
+					System.out.print(x + " ");
+				}
+			} catch (ArrayIndexOutOfBoundsException e) {
+				//e.printStackTrace();
+				System.out.println("Can't print an Overflowing Stack!");
 			}
 		}
 	}
@@ -65,12 +87,15 @@ public class StacksArrayImpl {
 
 	public static void main(String[] args) {
 		Stack s = new Stack();
-		System.out.println(s.isEmpty());
+		System.out.println(s.isEmpty());	// true
+		s.pop();	// Stack Underflow
 		s.push(1);
 		s.push(2);
 		s.push(3);
 		s.push(4);
-		System.out.println(s.isEmpty());
+		s.push(4);
+		s.push(5);	// Stack Overflow
+		System.out.println(s.isEmpty());	 // false
 		System.out.println(s.pop() + " popped from the stack.");
 		System.out.println(s.peek() + " is the topmost element.");
 		System.out.println();

@@ -3,6 +3,7 @@ package geeksForGeeks_GFG.stacks;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class StacksDynamicArrayImpl {
 	public static void push(int new_data, List<Integer> stackList){
@@ -31,8 +32,8 @@ public class StacksDynamicArrayImpl {
 		peek(stackList);
 		push(4, stackList);
 		peek(stackList);
-		// Print elements of ArrayList using Iterator interface
-		Iterator it = stackList.iterator();
+		// Print elements of ArrayList using ListIterator interface
+		ListIterator<Integer> it = stackList.listIterator();
 		while(it.hasNext())
 			System.out.println(it.next());	
 		
