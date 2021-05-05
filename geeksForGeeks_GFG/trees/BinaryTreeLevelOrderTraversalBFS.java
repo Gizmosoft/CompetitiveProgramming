@@ -9,10 +9,10 @@ class Node{
 		left = right = null;
 	}
 }
-public class BinarySearchTreeLevelOrderTraversalBFS {
+public class BinaryTreeLevelOrderTraversalBFS {
 	Node root;
 	
-	public BinarySearchTreeLevelOrderTraversalBFS() {
+	public BinaryTreeLevelOrderTraversalBFS() {
 		root = null;
 	}
 	
@@ -58,7 +58,7 @@ public class BinarySearchTreeLevelOrderTraversalBFS {
 	}
 	
 	public static void main(String[] args) {
-		BinarySearchTreeLevelOrderTraversalBFS tree = new BinarySearchTreeLevelOrderTraversalBFS();
+		BinaryTreeLevelOrderTraversalBFS tree = new BinaryTreeLevelOrderTraversalBFS();
 		tree.root = new Node(1);
 		tree.root.left = new Node(2);
 		tree.root.right = new Node(3);
