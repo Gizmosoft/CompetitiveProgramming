@@ -101,6 +101,80 @@ public class LinkedLists {
 			l1.next = l2;
 		}
 		
+		//deleting node at the front
+		public static LinkedLists deleteAtFront(LinkedLists list) {
+			int x;	
+			Node temp = list.head;
+			if(temp != null) {
+				list.head = temp.next;
+				temp.next = null;
+				x = temp.data;
+				System.out.println(x + " has been deleted from the list!");
+			}
+			else {
+				System.out.println("The list is empty, nothing to delete!");
+			}
+			return list;
+		}
+		
+		// deleting node from the End
+		public static LinkedLists deleteAtEnd(LinkedLists list) {
+			Node temp = list.head;
+			
+			if(temp!=null) {
+				while(temp.next.next != null) {
+					temp = temp.next;
+				}
+				Node temp2 = temp.next;
+				temp.next = null;
+				System.out.println(temp2.data + " has been deleted from the list!");
+			}
+			else {
+				System.out.println("The list is empty, nothing to delete!");
+			}
+			
+			return list;
+		}
+		
+		// deleting node after a specific key - find the key and delete it
+		public static LinkedLists deleteAtKey(LinkedLists list, int key) {
+			Node temp = list.head;
+			
+			if(temp!=null) {
+				while(temp != null) {
+					
+					// explicit condition check for 'data found in first node'\
+					if(temp.data == key) {
+						list.head = temp.next;
+						temp.next = null;
+						System.out.println(temp.data + " has been deleted from the list!");
+						break;
+					}
+					
+					// explicit condition check for 'key not found'
+					if(temp.next == null) {
+						System.out.println("The key couldn't be found!");
+						return list;
+					}
+					
+					if(temp.next.data == key) {
+						Node delTemp = temp.next;
+						temp.next = delTemp.next;
+						delTemp.next = null;
+						System.out.println(delTemp.data + " has been deleted from the list!");
+						break;
+					}
+					temp = temp.next;
+				}
+			}
+			else {
+				System.out.println("The list is empty, nothing to delete!");
+			}
+			
+			return list;
+		}
+		
+		
 		public static void printList(LinkedLists list){
 			//assign the head of the list to a variable currentNode
 			Node currentNode = list.head;
@@ -122,21 +196,28 @@ public class LinkedLists {
 			list = insert(list, 1);
 			list = insert(list, 2);
 			list = insert(list, 3);
-			list = insertAtFront(list, 10);
-			list = insertAtKey(list, 14, 2);
+			list = insert(list, 4);
+			list = insert(list, 5);
+//			list = insertAtFront(list, 10);
+//			list = insertAtKey(list, 14, 2);
 			printList(list);
 			
-			LinkedLists list2 = new LinkedLists();
+//			LinkedLists list2 = new LinkedLists();
+//			
+//			list2 = insert(list2, 5);
+//			list2 = insert(list2, 6);
+//			list2 = insert(list2, 7);
+//			list2 = insertAtFront(list2, 11);
+//			list2 = insertAtKey(list2, 12, 5);
+//			printList(list2);	
+//			
+//			System.out.println("Merging two lists:\n");
+//			list.merge(list2);
+//			printList(list);
 			
-			list2 = insert(list2, 5);
-			list2 = insert(list2, 6);
-			list2 = insert(list2, 7);
-			list2 = insertAtFront(list2, 11);
-			list2 = insertAtKey(list2, 12, 5);
-			printList(list2);	
-			
-			System.out.println("Merging two lists:\n");
-			list.merge(list2);
+//			list = deleteAtFront(list);
+//			list = deleteAtEnd(list);
+			list = deleteAtKey(list, 5);
 			printList(list);
 		}
 }
