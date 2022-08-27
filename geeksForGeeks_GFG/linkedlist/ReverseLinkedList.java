@@ -47,24 +47,22 @@ public class ReverseLinkedList {
 		head = prev;
 	}
 	
-	Node reverseListUsingRecursion(Node head){		// not working
-		if(head==null)
-			return null;
-		else if(head.next == null)
+	public static Node reverseListUsingRecursion(Node head){		// not working
+		if(head == null || head.next == null)
 			return head;
-		else{
-			Node nextNode = head.next;
-			head.next = null;
-			Node rev = reverseListUsingRecursion(nextNode);
-			nextNode.next = head;
-			return rev;
-		}
+
+		//recursion
+		Node newHead = reverseListUsingRecursion(head.next);
+		Node headNext = head.next;
+		headNext.next = head;
+		head.next = null;
+		return newHead;
 	}
 	
-	void printRecursiveList(Node head){
-		while(head!=null){
-			System.out.print(String.valueOf(head.data) + " ");
-			head = head.next;
+	public static void printRecursiveList(ReverseLinkedList list){
+		while(list.head!=null){
+			System.out.print(String.valueOf(list.head.data) + " ");
+			list.head = list.head.next;
 		}
 	}
 	public static void main(String[] args) throws Exception{
@@ -76,14 +74,15 @@ public class ReverseLinkedList {
 		rll.push(3);
 		rll.push(4);
 		
-		rll.printList();
+		rll.printList();	
+		
 		
 //		rll.reverseList();
-//		
 //		rll.printList();
 		
-//		Node rllist = rll.reverseListUsingRecursion(curr);
-//		rll.printRecursiveList(head);
+		rll.head = reverseListUsingRecursion(rll.head);
+//		rll.printList();
+		printRecursiveList(rll);
 	}
 
 }
