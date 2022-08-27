@@ -57,18 +57,56 @@ public class StacksLinkedListImpl {
 		return topValue;
 	}
 	
+	public static void printLLBasedStack(StacksLinkedListImpl sll) {
+		Node currentNode = sll.head;
+		System.out.println("The Stack is: ");
+		while(currentNode != null) {
+			System.out.println(currentNode.data);
+			currentNode = currentNode.next;
+		}
+	}
+	
+	public int sizeOfStack(StacksLinkedListImpl sll) {
+		int size = 0;
+		
+		if(sll.head == null)
+			return size;
+		
+		Node temp = sll.head;
+		while(temp != null) {
+			size+=1;
+			temp = temp.next;
+		}
+		return size;
+	}
+	
+	public static void status(StacksLinkedListImpl sll) {
+		if(sll.isEmpty()) {
+			System.out.println("The Stack is Empty!");
+			return;
+		}
+		else {
+			System.out.println("The size of Stack is: " + sll.sizeOfStack(sll));
+			System.out.println(sll.peek() + " is the topmost element in the stack.");
+		}
+	}
+	
 	public static void main(String[] args) {
 		StacksLinkedListImpl sll = new StacksLinkedListImpl();
-		System.out.println(sll.isEmpty());
+		status(sll);
 		sll.push(1);
 		sll.push(2);
 		sll.push(3);
 		sll.push(4);
-		System.out.println(sll.isEmpty());
-		System.out.println(sll.peek() + " is the topmost element in the stack.");
+		printLLBasedStack(sll);
+		status(sll);
+//		System.out.println(sll.isEmpty());
+//		System.out.println(sll.peek() + " is the topmost element in the stack.");
 		System.out.println(sll.pop() + " is popped from the Stack.");
 //		sll.push(5);
-		System.out.println(sll.peek() + " is the topmost element in the stack.");
+//		System.out.println(sll.peek() + " is the topmost element in the stack.");
+		printLLBasedStack(sll);
+		status(sll);
 	}
 
 }
