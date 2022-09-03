@@ -16,11 +16,12 @@ class Queue{
 	static void enqueue(int x) {
 		// Check if queue is full or not
 		if(MAX_SIZE == rear) {
+			System.out.println("The Queue is Full!!!");
 			return;
-			//System.out.println("The Queue is Full!!!");
 		}
 		else {
 			queue[rear] = x;
+			System.out.println(x + " has been added to queue.");
 			rear++;
 		}
 		return;
@@ -61,6 +62,7 @@ class Queue{
 		for(int i=0; i<=rear-1; i++) {
 			System.out.print(queue[i] + " ");
 		}
+		System.out.println();
 	}
 }
 
