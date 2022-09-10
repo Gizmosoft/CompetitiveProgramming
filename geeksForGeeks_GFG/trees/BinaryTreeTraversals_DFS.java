@@ -1,6 +1,6 @@
 package geeksForGeeks_GFG.trees;
 
-public class BinaryTreeInorderTraversal_DFS {
+public class BinaryTreeTraversals_DFS {
 	static Node root;
 	
 	void printInorder(Node root) {
@@ -36,7 +36,7 @@ public class BinaryTreeInorderTraversal_DFS {
 //	}
 
 	public static void main(String[] args) {
-		BinaryTreeInorderTraversal_DFS tree = new BinaryTreeInorderTraversal_DFS();
+		BinaryTreeTraversals_DFS tree = new BinaryTreeTraversals_DFS();
 		
 		root = new Node(1);
 		root.left = new Node(2);

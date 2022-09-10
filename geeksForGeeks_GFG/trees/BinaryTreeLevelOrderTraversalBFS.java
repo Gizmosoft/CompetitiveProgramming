@@ -37,6 +37,8 @@ public class BinaryTreeLevelOrderTraversalBFS {
 			//System.out.println(lheight);
 			//System.out.println(rheight);
 			// return the larger height
+			// easy approach:
+			// return Math.max(lheight, rheight) + 1;
 			if(lheight>rheight)
 				return lheight+1;
 			else
