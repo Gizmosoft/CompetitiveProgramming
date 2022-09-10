@@ -21,8 +21,8 @@ public class BinaryTreeLevelOrderTraversalUsingQueues {
 		Queue<Node> q = new LinkedList<Node>();
 		q.add(root);
 		
-		// remove head element
 		while(!q.isEmpty()) {
+			// remove head element
 			Node tempNode = q.poll();
 			System.out.print(tempNode.data + " ");
 			
