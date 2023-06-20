@@ -47,7 +47,7 @@ public class ReverseLinkedList {
 		head = prev;
 	}
 	
-	public static Node reverseListUsingRecursion(Node head){		// not working
+	public static Node reverseListUsingRecursion(Node head){
 		if(head == null || head.next == null)
 			return head;
 
@@ -77,12 +77,12 @@ public class ReverseLinkedList {
 		rll.printList();	
 		
 		
-//		rll.reverseList();
-//		rll.printList();
+		rll.reverseList();
+		rll.printList();
 		
-		rll.head = reverseListUsingRecursion(rll.head);
-//		rll.printList();
-		printRecursiveList(rll);
+//		rll.head = reverseListUsingRecursion(rll.head);
+////		rll.printList();
+//		printRecursiveList(rll);
 	}
 
 }
