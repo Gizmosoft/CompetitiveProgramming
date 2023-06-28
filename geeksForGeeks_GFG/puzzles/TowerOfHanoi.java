@@ -14,6 +14,6 @@ public class TowerOfHanoi {
 
 	public static void main(String[] args) {
 		int n = 4;
-		solveTower(n, 'A', 'B', 'C');
+		solveTower(n, 'A', 'C', 'B');
 	}
 }
